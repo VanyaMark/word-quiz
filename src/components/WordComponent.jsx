@@ -4,11 +4,11 @@ import LetterComponent from './LetterComponent'
 const WordComponent = () => {
   return (
     <div className="center">
-        <LetterComponent />
-        <LetterComponent />
-        <LetterComponent />
-        <LetterComponent />
-        <LetterComponent />
+        <LetterComponent index={0} />
+        <LetterComponent index={1} />
+        <LetterComponent index={2} />
+        <LetterComponent index={3} />
+        <LetterComponent index={4} />
     </div>
   )
 }

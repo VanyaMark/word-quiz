@@ -8,12 +8,20 @@ import { fiveLetterWords } from './util/words';
 
 function App() {
 
-  const [letter, setLetter] = useState('');
+  const [word, setWord] = useState('');
   // const randomWord = (wordsArr) => wordsArr[Math.floor(Math.random()*wordsArr.length)]
   // const wordOfTheDay = randomWord(fiveLetterWords)
   // console.log(wordOfTheDay)
 
   const wordOfTheDay = "tango";
+
+//   const handleWordInput = (event) => {
+//     setWord(prevWord => {
+//         return {...prevWord,
+//                 [event.target.id]: Number(event.target.value)}
+//     })
+//     console.log(investmentValue)
+// }
 
   return (
     <div className="App">
