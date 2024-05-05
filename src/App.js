@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import WordComponent from './components/WordComponent';
+import Keyboard from './components/Keyboard';
+import GameOver from './components/GameOver';
+import { fiveLetterWords } from './util/words';
 
 function App() {
+
+  const [letter, setLetter] = useState('');
+  // const randomWord = (wordsArr) => wordsArr[Math.floor(Math.random()*wordsArr.length)]
+  // const wordOfTheDay = randomWord(fiveLetterWords)
+  // console.log(wordOfTheDay)
+
+  const wordOfTheDay = "tango";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div>
+      <WordComponent />
+      <WordComponent />
+      <WordComponent />
+      <WordComponent />
+      <WordComponent />
+      </div>
+      <Keyboard />
     </div>
   );
 }
