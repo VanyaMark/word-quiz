@@ -2,6 +2,8 @@ import React from 'react'
 import LetterComponent from './LetterComponent'
 
 const WordComponent = () => {
+
+  
   return (
     <div className="center">
         <LetterComponent index={0} />

@@ -5,11 +5,11 @@ const LetterComponent = ({index}) => {
     const [letter, setLetter] = useState('')
 
     const handleLetter = (event) => {
-        setLetter(event.target.value)
+        setLetter(event.target.value.slice(0,1))
         console.log('handleLetter: ', letter)
     }
   return (
-    <input className='letter' index={index} onChange={handleLetter} value={letter.toUpperCase()} required>
+    <input className='letter' index={index} onChange={handleLetter} value={letter.toUpperCase()} maxLength={1} required>
     </input>
   )
 }
