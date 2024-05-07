@@ -6,6 +6,8 @@ import Keyboard from './components/Keyboard';
 import GameOver from './components/GameOver';
 import { fiveLetterWords } from './util/words';
 
+import WordTest from './components/WordTest';
+
 function App() {
 
   const [word, setWord] = useState('');
@@ -26,6 +28,9 @@ function App() {
   return (
     <div className="App">
       <Header />
+
+      <WordTest />
+
       <div>
       <WordComponent />
       <WordComponent />

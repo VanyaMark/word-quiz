@@ -1,5 +1,7 @@
-import React from 'react'
-import LetterComponent from './LetterComponent'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import LetterComponent from './LetterComponent';
+
 
 const WordComponent = () => {
 
