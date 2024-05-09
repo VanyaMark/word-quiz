@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import WordComponent from './components/WordComponent';
@@ -10,12 +10,36 @@ import WordTest from './components/WordTest';
 
 function App() {
 
-  const [word, setWord] = useState('');
+  const [word, setWord] = useState([]);
+
+  const handleWord = (event, index) => {
+    const letter = event.target.value.toUpperCase();
+    const newWord = [...word];
+    newWord[index] = letter;
+    setWord(newWord);
+    console.log('word from wordTest comp: ', word)
+    console.log(checkWordToWordOfTheDay(word, wordOfTheDay))
+  }
+
+  
+  useEffect(() => {
+    console.log('word: ', word)
+  }, [word])
   // const randomWord = (wordsArr) => wordsArr[Math.floor(Math.random()*wordsArr.length)]
   // const wordOfTheDay = randomWord(fiveLetterWords)
   // console.log(wordOfTheDay)
 
-  const wordOfTheDay = "tango";
+  const wordOfTheDay = "TANGO";
+
+  const checkWordToWordOfTheDay = (word, wordOfTheDay) => {
+    // let wordOfTheDayArr = wordOfTheDay.split()
+    const wordToString = JSON.stringify(word)
+    if (wordOfTheDay === wordToString) {
+      return true
+    } else {
+      return false
+    }
+  }
 
 //   const handleWordInput = (event) => {
 //     setWord(prevWord => {
@@ -29,7 +53,7 @@ function App() {
     <div className="App">
       <Header />
 
-      <WordTest />
+      <WordTest  word={word} handleWord={handleWord} />
 
       <div>
       <WordComponent />

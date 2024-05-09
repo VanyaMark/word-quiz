@@ -1,18 +1,8 @@
 import React from "react";
-import { useState } from 'react';
 
 const indexArr = [0, 1, 2, 3, 4];
 
-const WordTest = () => {
-    const [word, setWord] = useState([])
-
-    const handleWord = (event, index) => {
-      const letter = event.target.value.toUpperCase();
-      const newWord = [...word];
-      newWord[index] = letter;
-      setWord(newWord);
-      console.log('word from wordTest comp: ', word)
-    }
+const WordTest = ({word, handleWord}) => {
 
   return (
     <div class="center">
