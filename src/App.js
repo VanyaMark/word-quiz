@@ -18,12 +18,12 @@ function App() {
     newWord[index] = letter;
     setWord(newWord);
     console.log('word from wordTest comp: ', word)
-    console.log(checkWordToWordOfTheDay(word, wordOfTheDay))
+    // console.log(checkWordToWordOfTheDay(word, wordOfTheDay))
   }
 
   
   useEffect(() => {
-    console.log('word: ', word)
+    console.log('word from useEffect: ', word)
   }, [word])
   // const randomWord = (wordsArr) => wordsArr[Math.floor(Math.random()*wordsArr.length)]
   // const wordOfTheDay = randomWord(fiveLetterWords)
@@ -34,9 +34,12 @@ function App() {
   const checkWordToWordOfTheDay = (word, wordOfTheDay) => {
     // let wordOfTheDayArr = wordOfTheDay.split()
     const wordToString = JSON.stringify(word)
+    console.log('from checkWord: ', wordToString)
     if (wordOfTheDay === wordToString) {
+      console.log(true)
       return true
     } else {
+      console.log(false)
       return false
     }
   }
@@ -53,13 +56,9 @@ function App() {
     <div className="App">
       <Header />
 
-      <WordTest  word={word} handleWord={handleWord} />
+      <WordTest  word={word} handleWord={handleWord} check={checkWordToWordOfTheDay} />
 
       <div>
-      <WordComponent />
-      <WordComponent />
-      <WordComponent />
-      <WordComponent />
       <WordComponent />
       </div>
       <Keyboard />
