@@ -29,7 +29,7 @@ const WordTest = ({userGuess, handleWord, check, targetWord}) => {
         maxLength={1}
         required
       ></input>)}
-      <button onClick={()=> check(userGuess, targetWord)} >Check</button>
+      <button onClick={()=> check(userGuess, targetWord)} >Check</button> 
     </div>
   );
 };
