@@ -30,19 +30,57 @@ function App() {
   // console.log(wordOfTheDay)
 
   const wordOfTheDay = "TANGO";
+  //Compares user suggestion to word of the day and returns object containing the letters that are in both word and if the position is correct or not
+  function compareWords(userGuess, targetWord) {
+    const result = {
+        correctPosition: [],
+        incorrectPosition: [],
+        notIncluded: []
+    };
 
-  const checkWordToWordOfTheDay = (word, wordOfTheDay) => {
-    // let wordOfTheDayArr = wordOfTheDay.split()
-    const wordToString = JSON.stringify(word)
-    console.log('from checkWord: ', wordToString)
-    if (wordOfTheDay === wordToString) {
-      console.log(true)
-      return true
-    } else {
-      console.log(false)
-      return false
+    console.log('userGuess: ', userGuess);
+    console.log('targetWord: ', targetWord);
+
+    // Convert strings to arrays for easier manipulation
+   
+    const targetArr = targetWord.split('');
+
+    // Loop through each letter in the user's guess
+    for (let i = 0; i < userGuess.length; i++) {
+        const userGuessLetter = userGuess[i];
+        const targetLetter = targetArr[i];
+
+        if (userGuessLetter === targetLetter) {
+            // Letter is correct both in letter and position
+            result.correctPosition.push({ letter: userGuessLetter, position: i });
+        } else if (targetArr.includes(userGuessLetter)) {
+            // Letter is correct letter but in wrong position
+            result.incorrectPosition.push({ letter: userGuessLetter, position: i });
+        } else {
+            // Letter is not in the target word
+            result.notIncluded.push({ letter: userGuessLetter, position: i });
+        }
     }
-  }
+
+    console.log(result);
+    return result;
+}
+
+  // const arrToString = (array) => {
+  //   return array.join('')
+  // }
+
+  // const checkWordToWordOfTheDay = (word, wordOfTheDay) => {
+  //   // let wordOfTheDayArr = wordOfTheDay.split()
+  //   const wordToString = arrToString(word)
+  //   console.log('from checkWord: ', wordToString)
+  //   if (wordOfTheDay === wordToString) {
+  //     console.log(true)
+  //     return true
+  //   } else {
+  //    return compareLetterToLetter(word, wordOfTheDay)
+  //   }
+  // }
 
 //   const handleWordInput = (event) => {
 //     setWord(prevWord => {
@@ -56,7 +94,7 @@ function App() {
     <div className="App">
       <Header />
 
-      <WordTest  word={word} handleWord={handleWord} check={checkWordToWordOfTheDay} />
+      <WordTest  userGuess={word} handleWord={handleWord} check={compareWords} targetWord={wordOfTheDay} />
 
       <div>
       <WordComponent />

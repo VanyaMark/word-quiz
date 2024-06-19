@@ -1,0 +1,24 @@
+.letter {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+  }
+
+  .initial {
+    background-color: white;
+  }
+  
+  .correct {
+    background-color: lightgreen;
+  }
+  
+  .incorrect {
+    background-color: orange;
+  }
+  
+  .not-included {
+    background-color: lightgray;
+  }
